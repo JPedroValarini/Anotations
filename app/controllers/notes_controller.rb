@@ -13,6 +13,16 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
 
+    if params[:note][:categories].is_a?(String)
+      params[:note][:categories] = JSON.parse(params[:note][:categories])
+    end
+
+    @note.categories ||= []
+
+    params[:note][:categories].each do |category|
+      @note.categories << category
+    end
+
     if @note.save
       render json: @note, status: :created
     else
@@ -40,6 +50,6 @@ class NotesController < ApplicationController
   end
 
   def note_params
-    params.require(:note).permit(:title, :content)
+    params.require(:note).permit(:title, :content, :categories, :reminder_date)
   end
 end
