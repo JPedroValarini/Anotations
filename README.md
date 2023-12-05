@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version "3.2.0"
 
-Things you may want to cover:
+* Ruby version "7.0.6"
 
-* Ruby version
-
-* System dependencies
+* Database "Postgresql"
 
 * Configuration
+  - git clone git@github.com:JPedroValarini/Anotations.git
+  - bundle install
 
 * Database creation
+  - rails db:create
+  - rails db:migrate
 
 * Database initialization
+    - Use your local database
+    - set in database.yml your databasename and password.
 
 * How to run the test suite
+    - rails s
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+** After that you have http://localhost:3000/ to consume with anotations-front aplication.
