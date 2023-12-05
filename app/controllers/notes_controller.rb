@@ -30,14 +30,6 @@ class NotesController < ApplicationController
     end
   end
 
-  def update
-    if @note.update(note_params)
-      render json: @note
-    else
-      render json: @note.errors, status: :unprocessable_entity
-    end
-  end
-
   def destroy
     @note.destroy
     head :no_content
